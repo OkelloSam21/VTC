@@ -1,0 +1,52 @@
+[
+    {
+      "name": "Cooking",
+      "category": "Domestic",
+      "description": "Ability to prepare various meals and cuisines"
+    },
+    {
+      "name": "Cleaning",
+      "category": "Domestic",
+      "description": "House cleaning and organization"
+    },
+    {
+      "name": "Babysitting",
+      "category": "Childcare",
+      "description": "Taking care of children"
+    },
+    {
+      "name": "Gardening",
+      "category": "Outdoor",
+      "description": "Plant care and garden maintenance"
+    },
+    {
+      "name": "Washing",
+      "category": "Domestic",
+      "description": "Laundry and clothes washing"
+    },
+    {
+      "name": "Carpentry",
+      "category": "Construction",
+      "description": "Woodworking and furniture making"
+    },
+    {
+      "name": "Plumbing",
+      "category": "Construction",
+      "description": "Installation and repair of water systems"
+    },
+    {
+      "name": "Electrical",
+      "category": "Construction",
+      "description": "Electrical wiring and repairs"
+    },
+    {
+      "name": "Tutoring",
+      "category": "Education",
+      "description": "Academic instruction and assistance"
+    },
+    {
+      "name": "Data Entry",
+      "category": "Digital",
+      "description": "Entering information into digital systems"
+    }
+  ]

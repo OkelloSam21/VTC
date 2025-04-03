@@ -1,0 +1,44 @@
+[
+    {
+      "county": "Bungoma",
+      "subCounties": [
+        {
+          "name": "Bumula",
+          "villages": [
+            {"name": "Mabusi"},
+            {"name": "Kimaeti"},
+            {"name": "Siboti"}
+          ]
+        },
+        {
+          "name": "Kanduyi",
+          "villages": [
+            {"name": "Musikoma"},
+            {"name": "Kibabii"},
+            {"name": "Tuuti"}
+          ]
+        }
+      ]
+    },
+    {
+      "county": "Kakamega",
+      "subCounties": [
+        {
+          "name": "Lurambi",
+          "villages": [
+            {"name": "Bukhungu"},
+            {"name": "Shirere"},
+            {"name": "Maraba"}
+          ]
+        },
+        {
+          "name": "Lugari",
+          "villages": [
+            {"name": "Lumakanda"},
+            {"name": "Matete"},
+            {"name": "Mautuma"}
+          ]
+        }
+      ]
+    }
+  ]

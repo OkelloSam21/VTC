@@ -40,6 +40,8 @@ const TaskSchema = new mongoose.Schema({
       required: true
     }
   },
+  // Added images field
+  images: [String],
   status: {
     type: String,
     enum: ['open', 'assigned', 'in-progress', 'completed', 'cancelled'],

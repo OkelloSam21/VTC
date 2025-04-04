@@ -41,6 +41,11 @@ const UserSchema = new mongoose.Schema({
       trim: true
     }
   },
+  // Added profile picture field
+  profilePicture: {
+    type: String,
+    default: '/uploads/default-profile.jpg'
+  },
   // Fields specific to taskers
   education: {
     highestLevel: {

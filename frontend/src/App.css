@@ -309,3 +309,77 @@ textarea {
   background-color: #555;
   border-radius: 4px;
 }
+
+/* Profile Page Styles */
+.profile-tabs {
+  display: flex;
+  margin: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-tabs button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.profile-tabs button.btn-primary {
+  border-bottom: 3px solid #333;
+  background: none;
+  color: #333;
+}
+
+.profile-info {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+  margin-top: 20px;
+}
+
+.profile-details p {
+  margin-bottom: 10px;
+}
+
+.connection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.my-tasks, .my-connections {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness for profile */
+@media screen and (max-width: 768px) {
+  .profile-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .profile-tabs button {
+    margin-right: 0;
+    margin-bottom: 10px;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+  
+  .profile-tabs button.btn-primary {
+    border-bottom: none;
+    border-left: 3px solid #333;
+  }
+}

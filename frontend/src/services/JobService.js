@@ -1,15 +1,5 @@
 import api from '../utils/api';
 
-// Get all jobs
-export const getJobs = async () => {
-  try {
-    const response = await api.get('/jobs');
-    return response.data;
-  } catch (err) {
-    throw err.response.data;
-  }
-};
-
 // Get single job by ID
 export const getJobById = async (jobId) => {
   try {
@@ -37,5 +27,16 @@ export const updateJob = async (jobId, jobData) => {
     return response.data;
   } catch (err) {
     throw err.response.data;
+  }
+};
+
+
+export const getJobs = async () => {
+  try {
+    const response = await api.get('/tasks');
+    return response.data.data;
+  } catch (err) {
+    console.error('Get jobs error:', err);
+    throw new Error(err.response?.data?.error || 'Failed to fetch jobs');
   }
 };

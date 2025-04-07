@@ -1,7 +1,9 @@
 // services/authService.js
 import api from './api';
+// services/authService.js
+import api from './api';
 
-// Register user
+// Register a new user
 export const register = async (userData) => {
   try {
     const formattedData = {
@@ -48,7 +50,10 @@ export const login = async (userData) => {
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       return response.data;
+      return response.data;
     }
+    
+    throw new Error('Login failed. No token received.');
     
     throw new Error('Login failed. No token received.');
   } catch (err) {

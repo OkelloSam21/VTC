@@ -4,6 +4,8 @@ const colors = require('colors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const fileupload = require('express-fileupload');
+const path = require('path');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -20,6 +22,9 @@ const locations = require('./routes/locations');
 const tasks = require('./routes/tasks');
 const connections = require('./routes/connections');
 const transactions = require('./routes/transactions');
+const reviews = require('./routes/reviews');
+const search = require('./routes/search');
+const upload = require('./routes/upload');
 
 const app = express();
 
@@ -29,6 +34,9 @@ app.use(express.json());
 // Cookie parser
 app.use(cookieParser());
 
+// File uploading
+app.use(fileupload());
+
 // Enable CORS
 app.use(cors());
 
@@ -37,6 +45,9 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Mount routers
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/skills', skills);
@@ -44,6 +55,9 @@ app.use('/api/v1/locations', locations);
 app.use('/api/v1/tasks', tasks);
 app.use('/api/v1/connections', connections);
 app.use('/api/v1/transactions', transactions);
+app.use('/api/v1/reviews', reviews);
+app.use('/api/v1/search', search);
+app.use('/api/v1/upload', upload);
 
 // Error handler
 app.use(errorHandler);

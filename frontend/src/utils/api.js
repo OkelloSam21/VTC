@@ -1,19 +1,17 @@
 import axios from 'axios';
 
-// Create an instance of axios with default config
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5000/api/v1', // Make sure this matches your backend routes
   headers: {
     'Content-Type': 'application/json'
   }
 });
 
-// Add a request interceptor to add the auth token to requests
 api.interceptors.request.use(
   config => {
     const token = localStorage.getItem('token');
     if (token) {
-      config.headers['x-auth-token'] = token;
+      config.headers['Authorization'] = `Bearer ${token}`;
     }
     return config;
   },

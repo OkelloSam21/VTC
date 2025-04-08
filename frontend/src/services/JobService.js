@@ -41,3 +41,14 @@ export const getJobs = async () => {
     throw new Error(err.response?.data?.error || 'Failed to fetch jobs');
   }
 };
+
+// get skills
+export const getSkills = async () => {
+  try {
+    const response = await api.get('/skills');
+    return response.data.data;
+  } catch (err) {
+    console.error('Get skills error:', err);
+    throw new Error(err.response?.data?.error || 'Failed to fetch skills');
+  }
+};

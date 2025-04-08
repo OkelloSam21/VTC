@@ -1,28 +1,52 @@
 // services/authService.js
-import api from './api';
 // services/authService.js
-import api from './api';
+import api from "../utils/api";
 
 // Register a new user
+// export const register = async (userData) => {
+//   try {
+//     const formattedData = {
+//       name: userData.name,
+//       phoneNumber: userData.phone, // This is the key fix - matching the field name
+//       nationalId: userData.nationalId || userData.phone, // Fallback if nationalId not provided
+//       password: userData.password,
+//       role: 'employer', // You can make this dynamic later
+//       location: {
+//         county: 'Bungoma',
+//         subCounty: 'Kanduyi',
+//         village: userData.village || 'Musikoma'
+//       }
+//     };
+
+//     console.log('Sending registration data:', formattedData);
+    
+//     const response = await api.post('/auth/register', formattedData);
+    
+//     if (response.data.token) {
+//       localStorage.setItem('token', response.data.token);
+//       return response.data;
+//     }
+    
+//     throw new Error('Registration failed. No token received.');
+//   } catch (err) {
+//     console.error('Registration error:', err);
+//     throw new Error(err.response?.data?.error || 'Registration failed');
+//   }
+// };
+
+// Register user
 export const register = async (userData) => {
   try {
-    const formattedData = {
-      name: userData.name,
-      phoneNumber: userData.phone, // This is the key fix - matching the field name
-      nationalId: userData.nationalId || userData.phone, // Fallback if nationalId not provided
-      password: userData.password,
-      role: 'employer', // You can make this dynamic later
-      location: {
-        county: 'Bungoma',
-        subCounty: 'Kanduyi',
-        village: userData.village || 'Musikoma'
-      }
-    };
-
-    console.log('Sending registration data:', formattedData);
+    console.log('Sending registration data:', userData);
     
-    const response = await api.post('/auth/register', formattedData);
+    let response;
+    if (userData.role === 'tasker') {
+      response = await api.post('/auth/register/tasker', userData);
+    } else {
+      response = await api.post('/auth/register', userData);
+    }
     
+    // Store the token in localStorage
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       return response.data;
@@ -30,7 +54,7 @@ export const register = async (userData) => {
     
     throw new Error('Registration failed. No token received.');
   } catch (err) {
-    console.error('Registration error:', err);
+    console.error('Register error:', err.response?.data || err.message);
     throw new Error(err.response?.data?.error || 'Registration failed');
   }
 };
@@ -50,12 +74,10 @@ export const login = async (userData) => {
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       return response.data;
-      return response.data;
     }
     
     throw new Error('Login failed. No token received.');
     
-    throw new Error('Login failed. No token received.');
   } catch (err) {
     console.error('Login error:', err);
     throw new Error(err.response?.data?.error || 'Invalid credentials');

@@ -167,7 +167,7 @@ const Register = () => {
       
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
-          <label>Account Type</label>
+          <label htmlFor= "account type">Account Type</label>
           <select
             name="role"
             value={role}
@@ -180,8 +180,9 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label>Full Name</label>
+          <label htmlFor="name">Full Name</label>
           <input
+            id="name"
             type="text"
             name="name"
             value={name}
@@ -191,7 +192,7 @@ const Register = () => {
         </div>
         
         <div className="form-group">
-          <label>Phone Number</label>
+          <label htmlFor="phone number">Phone Number</label>
           <input
             type="text"
             name="phoneNumber"
@@ -202,7 +203,7 @@ const Register = () => {
         </div>
         
         <div className="form-group">
-          <label>National ID</label>
+          <label htmlFor='national id'>National ID</label>
           <input
             type="text"
             name="nationalId"
@@ -213,7 +214,7 @@ const Register = () => {
         </div>
         
         <div className="form-group">
-          <label>Password</label>
+          <label htmlFor='password'>Password</label>
           <input
             type="password"
             name="password"
@@ -224,7 +225,7 @@ const Register = () => {
         </div>
         
         <div className="form-group">
-          <label>Confirm Password</label>
+          <label htmlFor='confirm password'>Confirm Password</label>
           <input
             type="password"
             name="password2"
@@ -235,7 +236,7 @@ const Register = () => {
         </div>
         
         <div className="form-group">
-          <label>County</label>
+          <label htmlFor='county'>County</label>
           <select
             name="county"
             value={county}
@@ -244,39 +245,39 @@ const Register = () => {
           >
             <option value="">Select County</option>
             {counties.map((countyName, index) => (
-              <option key={index} value={countyName}>{countyName}</option>
+              <option key={countyName} value={countyName}>{countyName}</option>
             ))}
           </select>
         </div>
         
         <div className="form-group">
-          <label>Sub-County</label>
+          <label htmlFor = 'sub county'>Sub-County</label>
           <select
             name="subCounty"
             value={subCounty}
             onChange={onChange}
             required
-            disabled={!county}
+            // disabled={!county}
           >
             <option value="">Select Sub-County</option>
             {subCounties.map((subCountyName, index) => (
-              <option key={index} value={subCountyName}>{subCountyName}</option>
+              <option key={subCountyName} value={subCountyName}>{subCountyName}</option>
             ))}
           </select>
         </div>
         
         <div className="form-group">
-          <label>Village</label>
+          <label htmlFor='village'>Village</label>
           <select
             name="village"
             value={village}
             onChange={onChange}
             required
-            disabled={!subCounty}
+            // disabled={!subCounty}
           >
             <option value="">Select Village</option>
             {villages.map((villageName, index) => (
-              <option key={index} value={villageName}>{villageName}</option>
+              <option key={villageName} value={villageName}>{villageName}</option>
             ))}
           </select>
         </div>
@@ -284,7 +285,7 @@ const Register = () => {
         {role === 'tasker' && (
           <>
             <div className="form-group">
-              <label>Education Level</label>
+              <label htmlFor='education level'>Education Level</label>
               <select
                 name="highestLevel"
                 value={highestLevel}
@@ -298,7 +299,7 @@ const Register = () => {
             </div>
             
             <div className="form-group">
-              <label>Specialization</label>
+              <label htmlFor='specialization'>Specialization</label>
               <input
                 type="text"
                 name="specialization"
@@ -309,7 +310,7 @@ const Register = () => {
             </div>
             
             <div className="form-group">
-              <label>Skills (hold Ctrl/Cmd to select multiple)</label>
+              <label htmlFor='skills'>Skills (hold Ctrl/Cmd to select multiple)</label>
               <select
                 multiple
                 name="skills"
@@ -329,8 +330,8 @@ const Register = () => {
           </>
         )}
         
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="btn btn-primary"
           disabled={loading}
         >
